@@ -1,0 +1,95 @@
+<!-- scFormInfo.defendant-->
+
+  <!-- scFormInfo.defendant.s1 -->
+<div class="well" ng-hide="scFormInfo.defendant.s1.finished">
+  <div class="form-group row">
+    <div class="col-xs-6">
+      <label for="numDefendants"># of defendant</label>
+      <select ng-model="sc100Deets.dNum" ng-options="x for x in scFormInfo.defendant.s1.num">
+      </select>
+    </div><!-- End num of plaintiff col -->
+  </div><!-- End form-group row -->
+  <button type="button" class="btn btn-block btn-info" ng-click="numOfDefendants()">Next</button>
+</div><!-- End Plaintiff Section 1 -->
+
+
+  <!--scFormInfo.plaintiff.s2 -->
+<div data-ng-repeat="d in sc100Deets.defendants">
+  <uib-accordion close-others="oneAtAtTime">
+    <div uib-accordion-group class="panel-default" heading="Defendant {{d.id}}">
+      <fieldset>
+        <h1>Defendant {{d.id}}</h1>
+        <div class="form-group">
+          <label for="isDMilitary">Is the defendant on active military duty?</label>
+          <select ng-model="d.military" ng-options="x for x in scFormInfo.defendant.s2.militaryDuty"></select>
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-6">
+            <label for="dType">Type</label>
+            <select ng-model="d.type" ng-options="x for x in scFormInfo.defendant.s2.type"></select>
+          </div><!-- End type of plaintiff col -->
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-6">
+            <label for="name">First Name</label>
+            <input type="text" class="form-control" name="name" ng-model="d.name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" name="email" ng-model="d.email">
+        </div>
+        <hr>
+      </fieldset>
+    </div><!-- End accordion-group div -->
+  </uib-accordion>
+  <a ui-sref="sc100.dispute" ng-click="activeMilitary()" ng-show="$last" class="btn btn-block btn-info">
+          Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div><!-- End div for data-ng-repeat -->
+
+
+<!--<div ng-controller="ModalDemoCtrl as $ctrl" class="modal-demo">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <ul>
+                <li ng-repeat="item in $ctrl.items">
+                    <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ $ctrl.selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="stackedModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+        </div>
+        <div class="modal-body" id="modal-body-{{name}}">
+            Having multiple modals open at once is probably bad UX but it's technically possible.
+        </div>
+    </script>
+
+    <button type="button" class="btn btn-default" ng-click="$ctrl.open()">Open me!</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.open('lg')">Large modal</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.open('sm')">Small modal</button>
+    <button type="button" 
+        class="btn btn-default" 
+        ng-click="$ctrl.open('sm', '.modal-parent')">
+            Modal appended to a custom parent
+    </button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.toggleAnimation()">Toggle Animation ({{ $ctrl.animationsEnabled }})</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.openComponentModal()">Open a component modal!</button>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.openMultipleModals()">
+        Open multiple modals at once 
+    </button>
+    <div ng-show="$ctrl.selected">Selection from a modal: {{ $ctrl.selected }}</div>
+    <div class="modal-parent">
+    </div>
+</div>-->

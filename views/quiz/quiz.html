@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div id="form-container">
+        <div class="page-header text-center">
+            <div id="status-buttons" class="text-center">
+                <a ui-sref-active="active" ui-sref=".step1"><span>1</span></a>
+                <a ui-sref-active="active" ui-sref=".step2"><span>2</span></a>
+                <a ui-sref-active="active" ui-sref=".step3"><span>3</span></a>
+            </div>
+        </div>
+        <div class="quizStart text-center" ng-hide="quizResults.quizStarted == true">
+          <h2>Is Small Claims Right For You?</h2>
+          <h4 ng-hide="currentUser">Let's Find Out!</h4>
+          <h4 ng-show="currentUser">Let's find out, {{currentUser.firstname}}</h4>
+          <button ui-sref=".step1" ng-click="startQuiz()" class="btn btn-primary">Begin</button>
+        </div>
+
+        <form id="signup-form" class="form-horizontal" ng-submit="processForm()">
+            <div id="quiz-views" ui-view></div>
+        </form>
+
+    </div>
+    <div>
+      <p>Quiz Results</p>
+      <pre>
+        {{ quizResults }}
+      </pre>
+      <pre>
+        {{ quizResults.defendantState }}
+      </pre>
+    </div>
+  </div>
+</div>

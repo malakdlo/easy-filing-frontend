@@ -1,0 +1,53 @@
+<!-- scFormInfo.plaintiff-->
+
+  <!-- scFormInfo.plaintiff.s1 -->
+<div class="well" ng-hide="scFormInfo.plaintiff.s1.finished">
+  <div class="form-group row">
+    <div class="col-xs-6">
+      <label for="numPlaintiffs"># of Plaintiffs</label>
+      <select ng-model="sc100Deets.pNum" ng-options="x for x in scFormInfo.plaintiff.s1.num">
+      </select>
+    </div><!-- End num of plaintiff col -->
+  </div><!-- End form-group row -->
+  <button type="button" class="btn btn-block btn-info" ng-click="numOfPlaintiffs()">Next</button>
+</div><!-- End Plaintiff Section 1 -->
+
+
+  <!--scFormInfo.plaintiff.s2 -->
+<div data-ng-repeat="p in sc100Deets.plaintiffs">
+  <uib-accordion close-others="oneAtAtTime">
+    <div uib-accordion-group class="panel-default" heading="Plaintiff {{p.id}}">
+      <fieldset>
+        <h1>Plaintiff {{p.id}}</h1>
+        <div class="form-group row">
+          <div class="col-xs-6">
+            <label for="pType">Type</label>
+            <select ng-model="p.type" ng-options="x for x in scFormInfo.plaintiff.s2.type"></select>
+          </div><!-- End type of plaintiff col -->
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-6">
+            <label for="name">First Name</label>
+            <input type="text" class="form-control" name="name" ng-model="p.name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" name="email" ng-model="p.email">
+        </div>
+        <hr>
+      </fieldset>
+    </div><!-- End accordion-group div -->
+  </uib-accordion>
+  <a ui-sref="sc100.defendant" ng-click="fictBus()" ng-show="$last" class="btn btn-block btn-info">Next Section<span class="glyphicon glyphicon-circle-arrow-right"></span>
+  </a>
+</div><!-- End div for data-ng-repeat -->
+
+
+<!--<div class="form-group row" ng-show="scFormInfo.plaintiff.s2.finished">
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="sc100.defendant" class="btn btn-block btn-info">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>-->

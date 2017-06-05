@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+  <div class="panel-heading text-center">
+    <h2>Final Step!</h2>
+    <p>Answer "no" to these last few questions and you're in the clear to file!</p>
+  </div><!-- End Panel Heading -->
+  <div class="panel-body">
+    <ol>
+      <li data-ng-repeat="q in stateDetailsObject[quizResults.defendantState].rareQuestions">
+        <label>{{q.question}}</label>
+        <select ng-model="quizResults.rareQuestions['question' + q.title]" ng-options="x for x in formInfo.asked">
+        </select>
+      </li>
+    </ol>
+    <!--
+    <div data-ng-repeat="q in stateDetailsObject[quizResults.defendantState].rareQuestions">
+      <div class="form-group">
+        <div class="col-xs-12">
+          <label>{{q.question}}</label>
+          <select ng-model="quizResults.rareQuestions['question' + q.title]" ng-options="x for x in formInfo.asked">
+          </select>
+        </div>
+      </div>
+    </div>
+    -->
+  </div>
+</div>
+
+<div class="optionelems text-center">
+  <a class="btn btn-primary" type="button" ng-click="finishQuiz()" ng-hide="quizResults.allSet == true">Finish</a>
+</div>
+
+<!--
+<div class="well">
+  <div class="textintro">
+    <h3>Final Step!</h3>
+    <h4>Answer "no" to these last few questions and you're in the clear to file!</h4>
+  </div>
+  <div data-ng-repeat="q in stateDetailsObject[quizResults.defendantState].rareQuestions">
+    <div class="form-group">
+    <div class="col-xs-12">
+      <label>{{q.question}}</label>
+      <select ng-model="quizResults.rareQuestions['question' + q.title]" ng-options="x for x in formInfo.asked">
+      </select>
+    </div>
+  </div>
+  </div>
+</div>
+-->

@@ -1,0 +1,195 @@
+/* BASIC STYLING
+============================================================================= */
+body { 
+  background-color: rgba(255,255,255,0.1); 
+  padding-top:20px; 
+}
+
+/* Nav Styling */
+
+.branding {
+  text-align: center;
+}
+
+.branding a {
+  color: #0e76bc;
+}
+
+
+.nav-tabs > li {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid #feca2f;
+  border-radius: 4px 4px 0 0;
+}
+
+.nav-tabs > li > a {
+  color: #303030;
+}
+.nav > li > a:hover {
+  background-color: rgba(0,0,0,0.25);
+}
+
+.nav-tabs > li.active > a {
+  color: #feca2f;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  color: #fecd0b;
+  cursor: pointer;
+}
+
+/* Form Input Elements */
+select, input {
+  color: black;
+}
+
+
+/* CARD AND SECTIONS
+============================================================================= */
+
+section {
+  display: block;
+}
+
+.card {
+  background: white;
+  color: black;
+  width: 100%;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 40px;
+  text-align: center;
+  position: relative;
+  opacity: .95;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+
+.card input {
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+
+.card a {
+  color: #fecd0b;
+}
+
+.card fieldset {
+  padding: 20px
+}
+
+/* QUIZ STYLING
+============================================================================= */
+
+/* Intro */
+.quizStart h2,h3,h4 {
+  color: black;
+}
+
+/* Step 1 */
+.optionelems {
+  text-align: center;
+  color: black;
+  padding: 0 10px 0 10px;
+}
+
+
+/* SC FORMS STYLING
+============================================================================= */
+
+
+
+/* FORM GENERAL STYLING
+============================================================================= */
+
+/* form styling */
+#form-container { 
+  background:#F7F7F7; 
+  margin-bottom:20px;  
+  border-radius:5px;
+  padding-bottom: 50px;
+}
+#form-container .page-header { background:#F7F7F7; margin:0; padding:30px; 
+    border-top-left-radius:5px; border-top-right-radius:5px; }
+
+#form-container .page-header h2 {
+  color: black;
+}
+
+/* numbered buttons */
+#status-buttons {  }
+#status-buttons a { color:#FFF; display:inline-block; font-size:12px; margin-right:10px; text-align:center; text-transform:uppercase; }
+
+#status-buttons a:hover { text-decoration:none; }
+
+/* we will style the span as the circled number */
+#status-buttons span { background:#080808; display:block; height:30px; margin:0 auto 10px; padding-top:5px; width:30px; 
+    border-radius:50%; }
+
+/* active buttons turn light green-blue*/
+#status-buttons a.active span { background:#feca2f; }
+
+
+
+
+
+/* ANIMATION STYLINGS
+============================================================================= */
+#signup-form { 
+  position:relative; 
+  min-height:300px; 
+  overflow:hidden; 
+  padding:30px; 
+}
+#form-views { width:auto; }
+
+/* basic styling for entering and leaving */
+/* left and right added to ensure full width */
+#form-views.ng-enter,
+#form-views.ng-leave { position:absolute; left:30px; right:30px;
+    transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease; 
+}
+
+/* enter animation */
+#form-views.ng-enter { 
+    -webkit-animation:slideInRight 0.5s both ease;
+    -moz-animation:slideInRight 0.5s both ease;
+    animation:slideInRight 0.5s both ease; 
+}
+
+/* leave animation */
+#form-views.ng-leave { 
+    -webkit-animation:slideOutLeft 0.5s both ease;
+    -moz-animation:slideOutLeft 0.5s both ease;
+    animation:slideOutLeft 0.5s both ease;   
+}
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes slideOutLeft {
+    to      { transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {  
+    to      { -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+    to      { -webkit-transform: translateX(-200%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(200%); }
+    to      { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+    from    { -moz-transform:translateX(200%); }
+    to      { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+    from    { -webkit-transform:translateX(200%); }
+    to      { -webkit-transform: translateX(0); }
+}

@@ -1,0 +1,25 @@
+<div ng-controller="RegistrationController">
+  <div class="branding">
+    <a href="#">Simple Small Claims App</a> 
+    <br>
+    <!--<img class="img-thumbnail" src="/images/EZ-Legal-Logo-64-2.png" width="250" height="150">-->
+    <span ng-show="currentUser">Hi, {{currentUser.firstname}}</span>
+  </div>
+  <ul class="nav nav-tabs nav-justified">
+    <li ui-sref-active="active" ng-hide="currentUser">
+      <a ui-sref="login">Login</a>
+    </li>
+    <li ui-sref-active="active" ng-hide="currentUser">
+      <a ui-sref="registration">Register</a>
+    </li>
+    <li ui-sref-active="active" ng-show="currentUser">
+      <a ui-sref="login" ng-click="logout()">Logout</a>
+    </li>
+    <li ui-sref-active="active">
+      <a ui-sref="sc100">SC100</a>
+    </li>
+    <li ui-sref-active="active">
+      <a ui-sref="quiz">Can You File?</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,52 @@
+<div class="panel panel-primary">
+  <div class="panel-heading text-center">
+    <h2>Awesome</h2>
+    <p>Now let's find out if you can meet the basic state requirements.</p>
+  </div>
+  <div class="panel-body text-center">
+      <fieldset>
+        
+          I would like to file against a <select ng-model="quizResults.defendantState" ng-options="x for x in formInfo.states"></select> based <select ng-model="quizResults.defendantType" ng-options="x for x in formInfo.pType"></select> for
+          <input type="number" name="amount" placeholder="Amount" ng-model="quizResults.amount" ng-required="true">
+        
+      </fieldset>
+    </div>
+</div>
+
+<div class="optionelems text-center">
+  <a class="btn btn-primary" type="button" ng-click="canFile(quizResults.defendantState, quizResults.amount)" ng-hide="quizResults.passBasics == true">Can I File?</a>
+  
+  <div class="row" ng-show="quizResults.passBasics">
+    <h1>Yes, you can!</h1>
+    <p>File, that is...</p>
+    <a class="btn btn-primary" type="button" href="#!/quiz/step3" >Next Step</a>
+  </div>
+  
+</div>
+
+<!--
+<div class="well">
+
+  <div class="textintro">
+  <h4>Awesome, now let's find out if you can meet the basic state requirements.</h4>
+  </div>
+
+  <fieldset>
+    <div class="formRow">
+      I would like to file against a <select ng-model="quizResults.defendantState" ng-options="x for x in formInfo.states"></select> based <select ng-model="quizResults.defendantType" ng-options="x for x in formInfo.pType"></select> for
+      <input type="number" name="amount" placeholder="Amount" ng-model="quizResults.amount" ng-required="true">
+    </div>
+  </fieldset>
+
+  <div class="clearfix"></div>
+
+  <div class="pull-left">
+  <button class="btn btn-success" type="button" ng-click="canFile(quizResults.defendantState, quizResults.amount)">Can I File?</button>
+  </div>
+
+  <div class="pull-right" ng-show="quizResults.passBasics">
+  <a class="btn btn-success" type="button" href="#!/quiz/step3">Next Step</a>
+  </div>
+
+</div>
+-->
