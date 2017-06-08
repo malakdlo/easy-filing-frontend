@@ -1,8 +1,38 @@
+<div class="title">
+  <h1>Dispute Details</h1>
+</div>
 <div class="well">
+  <div class="form-group row">
+    <div class="col-md-4">
+      <label for="amount">How much does the plaintiff claim the defendant(s) owe?</label>
+      <input type="number" name="amount" ng-model="sc100Deets.dispute.amountOwed">
+    </div>
+    <div class="col-md-4">
+      <label for="dateOccured">When did this happen?</label>
+      <br>
+      <input type="date" name="dateOccured" ng-model="sc100Deets.dispute.exactDate">
+    </div>
+    <div class="col-md-4">
+      <p>Date Range</p>
+      <input type="date" name="startDate" placeholder="Start Date" ng-model="sc100Deets.dispute.startDate">
+      <input type="date" name="endDate" placeholder="End Date" ng-model="sc100Deets.dispute.startDate">
+    </div>
+  </div>
   <div class="form-group row">
     <div class="col-md-12">
       <label for="disputeDetails">Dispute Details</label>
-      <textarea ng-model="sc100Deets.dispute.details" rows="5"></textarea>
+      <br>
+      <textarea name="disputeDetails" ng-model="sc100Deets.dispute.details" rows="3" cols="30"></textarea>
     </div>
   </div>
+  <div class="form-group row">
+    <div class="col-md-12">
+      <label for="howDetails">How did you calculate the money owed to you?</label>
+      <br>
+      <textarea name="howDetails" ng-model="sc100Deets.dispute.how" rows="3" cols="30"></textarea>
+    </div>
+  </div>
+</div>
+<div>
+  <a ui-sref="sc100.court" class="btn btn-block btn-info">Next</a>
 </div>

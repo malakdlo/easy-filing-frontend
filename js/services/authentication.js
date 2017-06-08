@@ -25,7 +25,7 @@ formApp.factory('Authentication',
                 user.email,
                 user.password
               ).then(function(user) {
-                $location.path('/quiz');
+                $location.path('/sc100');
               }).catch(function(error) {
                 $rootScope.message = error.message;
               }); //signInWithEmailAndPassword

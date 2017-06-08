@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-12">
           <label for="asked">Select</label>
-          <select ng-model="quizResults.asked" ng-options="x for x in formInfo.asked">
+          <select ng-model="quizResults.asked" ng-options="x for x in infoObject.formInfo.asked">
           </select>
         </div>
       </div>
@@ -22,22 +22,7 @@
   </div>
   <div ng-if="quizResults.asked == 'No'">
     <h1>Oh, snap! You have to reach out via phone, email or snail-mail before you can file.</h1>
-    <h2>Demand Letter</h2>
+    <h2>Click Here to File Demand Letter</h2>
+    <p>Currently being built.</p>
   </div>
 </div>
-
-<!--
-<div class="well" ng-hide="quizResults.asked == 'No'">
-  <div class="textintro">
-    <h2>First things first.</h2>
-  </div>
-  <fieldset>
-    <div class="row">
-      <div class="col-md-12">
-        <h3>Have you asked the defendant(s) to pay you?</h3>
-        <select ng-model="quizResults.asked" ng-options="x for x in formInfo.asked"></select>
-      </div>
-    </div>
-  </fieldset>
-</div>
--->

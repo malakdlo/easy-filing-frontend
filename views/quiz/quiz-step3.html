@@ -1,13 +1,13 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary" ng-hide="quizResults.rareAnswers.status == false">
   <div class="panel-heading text-center">
     <h2>Final Step!</h2>
     <p>Answer "no" to these last few questions and you're in the clear to file!</p>
   </div><!-- End Panel Heading -->
   <div class="panel-body">
     <ol>
-      <li data-ng-repeat="q in stateDetailsObject[quizResults.defendantState].rareQuestions">
+      <li data-ng-repeat="q in infoObject.stateInfo[quizResults.defendantState].rareQuestions.text">
         <label>{{q.question}}</label>
-        <select ng-model="quizResults.rareQuestions['question' + q.title]" ng-options="x for x in formInfo.asked">
+        <select ng-model="q.answer" ng-options="x for x in infoObject.formInfo.asked">
         </select>
       </li>
     </ol>
@@ -23,26 +23,26 @@
     </div>
     -->
   </div>
+  <div class="text-center" style="padding-bottom: 10px;">
+    <a class="btn btn-primary" type="button" ng-click="finishQuiz(infoObject.stateInfo[quizResults.defendantState].rareQuestions.text)">Finish</a>
+  </div>
 </div>
 
 <div class="optionelems text-center">
-  <a class="btn btn-primary" type="button" ng-click="finishQuiz()" ng-hide="quizResults.allSet == true">Finish</a>
-</div>
-
-<!--
-<div class="well">
-  <div class="textintro">
-    <h3>Final Step!</h3>
-    <h4>Answer "no" to these last few questions and you're in the clear to file!</h4>
+  
+  
+  <div ng-show="quizResults.rareAnswers.status == true">
+    <p>{{ quizResults.rareAnswers.message }}</p>
   </div>
-  <div data-ng-repeat="q in stateDetailsObject[quizResults.defendantState].rareQuestions">
-    <div class="form-group">
-    <div class="col-xs-12">
-      <label>{{q.question}}</label>
-      <select ng-model="quizResults.rareQuestions['question' + q.title]" ng-options="x for x in formInfo.asked">
-      </select>
+  <div ng-if="quizResults.rareAnswers.status == false">
+    <h1> That was the last set of questions! You're all set to file! </h1>
+    <h2>What would you like to do now?</h2>
+    <!-- If state doesn't have rare question -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" ui-sref="sc100">File a Claim</button>
+      <button type="button" class="btn btn-primary" ui-sref="registration">Create an Account</button>
+      <button type="button" class="btn btn-primary" ui-sref="login">Login</button>
     </div>
   </div>
-  </div>
 </div>
--->
+

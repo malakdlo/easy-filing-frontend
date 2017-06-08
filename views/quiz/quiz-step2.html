@@ -6,7 +6,7 @@
   <div class="panel-body text-center">
       <fieldset>
         
-          I would like to file against a <select ng-model="quizResults.defendantState" ng-options="x for x in formInfo.states"></select> based <select ng-model="quizResults.defendantType" ng-options="x for x in formInfo.pType"></select> for
+          I would like to file against a <select ng-model="quizResults.defendantState" ng-options="x for x in infoObject.formInfo.states"></select> based <select ng-model="quizResults.defendantType" ng-options="x for x in infoObject.formInfo.pType"></select> for
           <input type="number" name="amount" placeholder="Amount" ng-model="quizResults.amount" ng-required="true">
         
       </fieldset>
@@ -14,39 +14,32 @@
 </div>
 
 <div class="optionelems text-center">
-  <a class="btn btn-primary" type="button" ng-click="canFile(quizResults.defendantState, quizResults.amount)" ng-hide="quizResults.passBasics == true">Can I File?</a>
+  <a class="btn btn-primary" type="button" ng-click="canFile(quizResults.defendantState, quizResults.amount)">Can I File?</a>
   
-  <div class="row" ng-show="quizResults.passBasics">
+  <!-- NEXT STEP - If state has more questions to determine whether individual can file -->
+  <div class="row" ng-show="quizResults.passBasics == true && infoObject.stateInfo[quizResults.defendantState].rareQuestions.status == true">
     <h1>Yes, you can!</h1>
     <p>File, that is...</p>
-    <a class="btn btn-primary" type="button" href="#!/quiz/step3" >Next Step</a>
+    <!-- If state has "rare questions" for a third step -->
+    <a class="btn btn-primary" type="button" href="#!/quiz/step3">Next Step</a>
   </div>
   
-</div>
-
-<!--
-<div class="well">
-
-  <div class="textintro">
-  <h4>Awesome, now let's find out if you can meet the basic state requirements.</h4>
-  </div>
-
-  <fieldset>
-    <div class="formRow">
-      I would like to file against a <select ng-model="quizResults.defendantState" ng-options="x for x in formInfo.states"></select> based <select ng-model="quizResults.defendantType" ng-options="x for x in formInfo.pType"></select> for
-      <input type="number" name="amount" placeholder="Amount" ng-model="quizResults.amount" ng-required="true">
+  <!-- FINISH - If state doesn't have more questions to determine whether individual can file -->
+  <div class="row" ng-show="quizResults.passBasics == true && infoObject.stateInfo[quizResults.defendantState].rareQuestions.status == false">
+    <h1>Yes, you can!</h1>
+    <p>File, that is...</p>
+    <h2>What would you like to do now?</h2>
+    <!-- If state doesn't have rare question -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" ui-sref="sc100">File a Claim</button>
+      <button type="button" class="btn btn-primary" ui-sref="registration">Create an Account</button>
+      <button type="button" class="btn btn-primary" ui-sref="login">Login</button>
     </div>
-  </fieldset>
-
-  <div class="clearfix"></div>
-
-  <div class="pull-left">
-  <button class="btn btn-success" type="button" ng-click="canFile(quizResults.defendantState, quizResults.amount)">Can I File?</button>
   </div>
-
-  <div class="pull-right" ng-show="quizResults.passBasics">
-  <a class="btn btn-success" type="button" href="#!/quiz/step3">Next Step</a>
+  
+  <!-- DEMAND LETTER - If the answers did not meet the states filing requirements -->
+  <div class="row" ng-show="quizResults.passBasics == false">
+    <h1>Sorry, you can't file a small claim</h1>
+    <h4>{{ quizResults.failReason }}</h4>
   </div>
-
 </div>
--->

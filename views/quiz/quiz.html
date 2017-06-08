@@ -25,8 +25,13 @@
       <pre>
         {{ quizResults }}
       </pre>
+      <p>Can File?</p>
       <pre>
-        {{ quizResults.defendantState }}
+        {{ infoObject.stateInfo[quizResults.defendantState].canFile }}
+      </pre>
+      <p>Rare Questions?</p>
+      <pre>
+        {{ infoObject.stateInfo[quizResults.defendantState].rareQuestions.status }}
       </pre>
     </div>
   </div>

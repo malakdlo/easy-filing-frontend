@@ -1,0 +1,112 @@
+{
+   "stateInfo":{
+      "AL":{
+         "canFile":false
+      },
+      "AK":{
+         "canFile":true,
+         "filingRanges":{
+            "min":2500,
+            "max":10000
+         },
+         "filingFees":{
+            "min":40,
+            "max":75
+         },
+         "rareQuestions":{
+            "status":false
+         }
+      },
+      "CA":{
+         "canFile":true,
+         "filingRanges":{
+            "min":1000,
+            "mid":5000,
+            "max":10000
+         },
+         "filingFees":{
+            "min":30,
+            "mid":50,
+            "max":75
+         },
+         "rareQuestions":{
+            "status":true,
+            "text":[
+               {
+                  "title":"moreThanTwo",
+                  "question":"Have you filed more than two small claims cases for more than $2,500 during this calendar year?",
+                  "answer": "No"
+               },
+               {
+                  "title":"publicEntity",
+                  "question":"Are you a public entity?",
+                  "answer": "No"
+               },
+               {
+                  "title":"moreThanTwelve",
+                  "question":"Have you filed more than 12 other small claims within the last 12 months?",
+                  "answer": "No"
+               }
+            ]
+         }
+      },
+      "TX":{
+         "canFile":false,
+         "filingRanges":{
+            "min":1000,
+            "mid":5000,
+            "max":10000
+         },
+         "filingFees":{
+            "min":30,
+            "mid":50,
+            "max":75
+         },
+         "rareQuestions":{
+            "status":false
+         }
+      },
+      "NV":{
+         "canFile":true,
+         "filingRanges":{
+            "min":1000,
+            "mid":5000,
+            "max":10000
+         },
+         "filingFees":{
+            "min":30,
+            "mid":50,
+            "max":75
+         },
+         "rareQuestions":{
+            "status":false
+         }
+      }
+   },
+   "formInfo":{
+      "asked":[
+         "Yes",
+         "No"
+      ],
+      "pNumber":[
+         1,
+         2,
+         3,
+         4,
+         5,
+         "Greater than 5"
+      ],
+      "pType":[
+         "Business",
+         "Person",
+         "Government Official"
+      ],
+      "states":[
+         "AK",
+         "AL",
+         "CA",
+         "NV",
+         "TX"
+      ]
+   }
+}

@@ -193,3 +193,7 @@ section {
     from    { -webkit-transform:translateX(200%); }
     to      { -webkit-transform: translateX(0); }
 }
+.title {
+  text-align: center;
+  color: black;
+}

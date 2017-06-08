@@ -1,12 +1,14 @@
-formApp.controller('Sc100FormCtrl', function($scope){
-  /******************** Data & Settings **********************/
-    // Main Object
+formApp.controller('Sc100FormCtrl', function($scope, QuizFactory){
+  /******************** Data **********************/
+      $scope.quizResults = QuizFactory.results;  
       $scope.sc100Deets = {
-        'plaintiffs':[],
-        'defendants':[]
+        "plaintiffs":[],
+        "defendants":[],
+        "toDoList": [],
+        "other":{
+          "begin": false
+        }
       };
-  
-    // Small Claims Form Info 
       $scope.scFormInfo = {
         "plaintiff":{
           "s1":{
@@ -30,16 +32,20 @@ formApp.controller('Sc100FormCtrl', function($scope){
           }
         }
       };
-      
-    // To Do List
-      $scope.toDoList = [];
   
     // Modal Settings
       $scope.oneAtAtTime = true;
     
   
 /******************** Functions **********************/
-// For sc100-plaintiff.html
+
+// BEGIN
+  
+    $scope.beginFiling = function(){
+      $scope.sc100Deets.other.begin = true;
+    }
+  
+// Step 1 - PLAINTIFF INFO
     // Find out how may plaintiffs to create number of forms
     $scope.numOfPlaintiffs = function(){
       var num = $scope.sc100Deets.pNum;
@@ -49,7 +55,7 @@ formApp.controller('Sc100FormCtrl', function($scope){
         )
       }
       if(num > 2){
-        $scope.toDoList.push("File a SC-100A for >2 Plaintiffs");
+        $scope.sc100Deets.toDoList.push("File a SC-100A for >2 Plaintiffs");
       }
     };
     // Find out if any plaintiffs are ficticious businesses for sc-103
@@ -57,13 +63,13 @@ formApp.controller('Sc100FormCtrl', function($scope){
       var p = $scope.sc100Deets.plaintiffs
       for(var i = 0; i < p.length; i++){
         if(p[i].type == 'Ficticious Business'){
-          $scope.toDoList.push("File a SC-103 for Plaintiff Number " + p[i].id + ", named " + p[i].name + ", which is a ficticious business.")
+          $scope.sc100Deets.toDoList.push("File a SC-103 for Plaintiff Number " + p[i].id + ", named " + p[i].name + ", which is a ficticious business.")
         }
       }
     };
       
-      
-// For sc100-defendant.html
+     
+// Step 2 - DEFENDANT INFO
     // Find out how may defendants to create number of forms
     $scope.numOfDefendants = function(){
       var num = $scope.sc100Deets.dNum;
@@ -73,7 +79,7 @@ formApp.controller('Sc100FormCtrl', function($scope){
         )
       }
       if(num > 2){
-        $scope.toDoList.push("File a SC-100A for >2 Defendants");
+        $scope.sc100Deets.toDoList.push("File a SC-100A for >2 Defendants");
       }
     };
     // Find out if any defendants are military members
@@ -81,16 +87,18 @@ formApp.controller('Sc100FormCtrl', function($scope){
       var d = $scope.sc100Deets.defendants
       for(var i = 0; i < d.length; i++){
         if(d[i].military == 'Yes'){
-          $scope.toDoList.push("Add " + d[i].name + " to SC-100 due to active military duty");
+          $scope.sc100Deets.toDoList.push("Add " + d[i].name + " to SC-100 due to active military duty");
         }
       }
     }
-       
+
+
+// ALL
     // to-do list
-      $scope.addToDo = function(item){
+    $scope.addToDo = function(item){
           console.log("Adding to do list item...")
-          $scope.toDoList.push(item);
-          console.log($scope.toDoList);
+          $scope.sc100Deets.toDoList.push(item);
+          console.log($scope.sc100Deets.toDoList);
       }
     
     

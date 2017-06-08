@@ -1,37 +1,30 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Small Claims App</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
-  
     <!-- CSS CDN's -->
     <!--
     <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/darkly/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.4/angular-material.css">
     -->
+    <!-- Angular Material -->
+    <!--    
+    <link rel="stylesheet" type="text/css" href="css/angular-material.css">
+    -->
     <link rel="stylesheet" type="text/css" href="css/google-fonts.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<!--    <link rel="stylesheet" type="text/css" href="css/angular-material.css">-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    
-
 </head>
-
-<!-- apply our angular app -->
 <body ng-app="formApp">
   <header>
     <nav ng-include="'views/nav.html'"></nav>
   </header>
   <div class="container">
-
-        <!-- views will be injected here -->
         <div ui-view></div>
-
     </div>
-  
     <!-- JS -->
     <!-- V. 1.6 CDN's -->
     <!--
@@ -47,7 +40,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.min.js"></script>
     -->
-  
     <!-- Local -->
     <script src="js/libs/angular.min.js"></script>
     <script src="js/libs/angular-ui-router.min.js"></script>
@@ -55,7 +47,6 @@
     <script src="js/libs/angular-animate.min.js"></script>
     <script src="js/libs/angular-sanitize.min.js"></script>
     <script src="js/libs/ui-bootstrap-tpls.min.js"></script>
-    
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script>
@@ -71,14 +62,11 @@
       firebase.initializeApp(config);
     </script>
     <script src="//cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
-  
     <script src="app.js"></script>
     <script src="js/services/authentication.js"></script>
     <script src="js/controllers/registration.js"></script>
-    <script src="js/controllers/formCtrl.js"></script>
     <script src="js/controllers/sc100Ctrl.js"></script>
     <script src="js/controllers/quizCtrl.js"></script>
-    <script src="js/controllers/deleteCtrl-bootstrap.js"></script>
-  
+    <script src="js/controllers/infoFactory.js"></script>
 </body>
 </html>

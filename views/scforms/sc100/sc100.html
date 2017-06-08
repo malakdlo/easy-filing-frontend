@@ -2,15 +2,16 @@
   <div class="col-sm-8 col-sm-offset-2">
       <div id="form-container">
           <div class="page-header text-center">
-              <h2>Time to File!</h2>
               <div id="status-buttons" class="text-center">
                   <a ui-sref-active="active" ui-sref=".plaintiff"><span>1</span></a>
                   <a ui-sref-active="active" ui-sref=".defendant"><span>2</span></a>
                   <a ui-sref-active="active" ui-sref=".dispute"><span>3</span></a>
+                  <a ui-sref-active="active" ui-sref=".court"><span>4</span></a>
               </div>
           </div>
-          <div class="quizStart text-center" ng-hide="quizResults.quizStarted == true">
-            <button ui-sref=".plaintiff" class="btn btn-primary">Begin</button>
+          <div class="quizStart text-center" ng-hide="sc100Deets.other.begin == true">
+            <h2>Time to File!</h2>
+            <button ui-sref=".plaintiff" class="btn btn-primary" ng-click="beginFiling()">Begin</button>
           </div>
 
           <!-- use ng-submit to catch the form submission and use our Angular function -->
@@ -18,17 +19,37 @@
 
               <!-- our nested state views will be injected here -->
               <div id="sc100-views" ui-view></div>
-        </form>
+          </form>
       </div>
-      <div>
-        <p>SC Deets</p>
-        <pre>
-          {{ sc100Deets }}
-        </pre>
-        <p>To Do</p>
-        <pre>
-          {{toDoList}}
-        </pre>
+      <div style="color:black">
+        <div class="row">
+          <div class="col-md-6">
+            <p>Plaintiff 1 Example</p>
+            <pre>
+              {{ sc100Deets.plaintiffs[0] }}
+            </pre>
+          </div>
+          <div class="col-md-6">
+             <p>To Do</p>
+            <pre>
+              {{ sc100Deets.toDoList}}
+            </pre>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p>SC Details to Pass to Firebase</p>
+            <pre>
+              {{ sc100Deets }}
+            </pre>
+          </div>
+          <div class="col-md-12">
+            <p>Quiz Results</p>
+            <pre>
+              {{ quizResults }}
+            </pre>
+          </div>
+        </div>  
       </div>
   </div>
 </div>

@@ -1,6 +1,3 @@
-// app.js
-// create our angular app and inject ngAnimate and ui-router 
-// =============================================================================
 var formApp = angular.module('formApp', [
   'firebase',
   'ngRoute',
@@ -21,50 +18,24 @@ formApp.run(['$rootScope', '$location', function($rootScope, $location){
   }]);
 */
 
-// configuring our routes 
-// =============================================================================
+
 formApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
-// basic form (/form)
-        .state('form', {
-            url: '/form',
-            templateUrl: 'views/forms/form.html',
-            controller: 'FormController'
-        })
-
-        // nested states 
-        // each of these sections will have their own view
-        // url will be nested (/form/profile)
-        .state('form.profile', {
-            url: '/profile',
-            templateUrl: 'views/forms/form-profile.html'
-        })
-
-        // url will be /form/interests
-        .state('form.interests', {
-            url: '/interests',
-            templateUrl: 'views/forms/form-interests.html'
-        })
-
-        // url will be /form/payment
-        .state('form.payment', {
-            url: '/payment',
-            templateUrl: 'views/forms/form-payment.html'
-        })
-        
-  
   // sc100 
         .state('sc100', {
             url:'/sc100',
             templateUrl: 'views/scforms/sc100/sc100.html',
             controller: 'Sc100FormCtrl'
-            /*resolve: {
+            // Resolve for page visit auth
+            /*
+            resolve: {
               currentAuth: function(Authentication){
                   return Authentication.requireAuth();
               }
-          }*/
+          }
+          */
         })
         .state('sc100.plaintiff', {
             url:'/plaintiff',
@@ -78,6 +49,10 @@ formApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
             url: '/dispute',
             templateUrl: 'views/scforms/sc100/sc100-dispute.html'
         })
+        .state('sc100.court', {
+              url: '/court',
+              templateUrl: 'views/scforms/sc100/sc100-court.html'
+            })
   
   // Quiz
   
@@ -112,8 +87,6 @@ formApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
             controller: 'RegistrationController'
           });
 
-    // catch all route
-    // send users to the form page 
-    $urlRouterProvider.otherwise('/sc100');
+    $urlRouterProvider.otherwise('/quiz');
     
 }]);
