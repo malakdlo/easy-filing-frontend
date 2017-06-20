@@ -23,7 +23,7 @@ formApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
 
     $stateProvider
 
-  // sc100 
+  // sc100
         .state('sc100', {
             url:'/sc100',
             templateUrl: 'views/scforms/sc100/sc100.html',
@@ -53,9 +53,9 @@ formApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
               url: '/court',
               templateUrl: 'views/scforms/sc100/sc100-court.html'
             })
-  
+
   // Quiz
-  
+
         .state('quiz', {
             url: '/quiz',
             templateUrl: 'views/quiz/quiz.html',
@@ -73,7 +73,7 @@ formApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
             url: '/step3',
             templateUrl: 'views/quiz/quiz-step3.html'
           })
-  
+
   // login
         .state('login', {
             url: '/login',
@@ -88,5 +88,5 @@ formApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
           });
 
     $urlRouterProvider.otherwise('/quiz');
-    
+
 }]);
