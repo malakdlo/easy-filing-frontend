@@ -4,8 +4,8 @@ formApp
 /******************** Data **********************/
     $scope.infoObject = QuizFactory.infoObject;
     $scope.quizResults = QuizFactory.results;
-  
-  
+
+
 /******************** Functions **********************/
 
   // Quiz Beginning
@@ -21,10 +21,6 @@ formApp
   // Quiz Step 3 - Rare Questions
       // Rare questions for certain states
     $scope.finishQuiz = QuizFactory.finishQuiz;
-      // function to process the form
-    $scope.processForm = function() {
-        alert('awesome!');
-    };
 
     })
   .factory('QuizFactory', function(){
@@ -37,117 +33,117 @@ formApp
       rareAnswers: {}
     };
     QuizFactory.infoObject = {
-   "stateInfo":{
-      "AL":{
-         "canFile":false
-      },
-      "AK":{
-         "canFile":true,
-         "filingRanges":{
-            "min":2500,
-            "max":10000
-         },
-         "filingFees":{
-            "min":40,
-            "max":75
-         },
-         "rareQuestions":{
-            "status":false
-         }
-      },
-      "CA":{
-         "canFile":true,
-         "filingRanges":{
-            "min":1000,
-            "mid":5000,
-            "max":10000
-         },
-         "filingFees":{
-            "min":30,
-            "mid":50,
-            "max":75
-         },
-         "rareQuestions":{
-            "status":true,
-            "text":[
-               {
-                  "title":"moreThanTwo",
-                  "question":"Have you filed more than two small claims cases for more than $2,500 during this calendar year?",
-                  "answer":"No"
-               },
-               {
-                  "title":"publicEntity",
-                  "question":"Are you a public entity?",
-                  "answer":"No"
-               },
-               {
-                  "title":"moreThanTwelve",
-                  "question":"Have you filed more than 12 other small claims within the last 12 months?",
-                  "answer":"No"
-               }
-            ]
-         }
-      },
-      "TX":{
-         "canFile":false,
-         "filingRanges":{
-            "min":1000,
-            "mid":5000,
-            "max":10000
-         },
-         "filingFees":{
-            "min":30,
-            "mid":50,
-            "max":75
-         },
-         "rareQuestions":{
-            "status":false
-         }
-      },
-      "NV":{
-         "canFile":true,
-         "filingRanges":{
-            "min":1000,
-            "mid":5000,
-            "max":10000
-         },
-         "filingFees":{
-            "min":30,
-            "mid":50,
-            "max":75
-         },
-         "rareQuestions":{
-            "status":false
-         }
-      }
-   },
-   "formInfo":{
-      "asked":[
-         "Yes",
-         "No"
-      ],
-      "pNumber":[
-         1,
-         2,
-         3,
-         4,
-         5,
-         "Greater than 5"
-      ],
-      "pType":[
-         "Business",
-         "Person",
-         "Government Official"
-      ],
-      "states":[
-         "AK",
-         "AL",
-         "CA",
-         "NV",
-         "TX"
-      ]
-   }
-};
+       "stateInfo":{
+          "AL":{
+             "canFile":false
+          },
+          "AK":{
+             "canFile":true,
+             "filingRanges":{
+                "min":2500,
+                "max":10000
+             },
+             "filingFees":{
+                "min":40,
+                "max":75
+             },
+             "rareQuestions":{
+                "status":false
+             }
+          },
+          "CA":{
+             "canFile":true,
+             "filingRanges":{
+                "min":1000,
+                "mid":5000,
+                "max":10000
+             },
+             "filingFees":{
+                "min":30,
+                "mid":50,
+                "max":75
+             },
+             "rareQuestions":{
+                "status":true,
+                "text":[
+                   {
+                      "title":"moreThanTwo",
+                      "question":"Have you filed more than two small claims cases for more than $2,500 during this calendar year?",
+                      "answer":"No"
+                   },
+                   {
+                      "title":"publicEntity",
+                      "question":"Are you a public entity?",
+                      "answer":"No"
+                   },
+                   {
+                      "title":"moreThanTwelve",
+                      "question":"Have you filed more than 12 other small claims within the last 12 months?",
+                      "answer":"No"
+                   }
+                ]
+             }
+          },
+          "TX":{
+             "canFile":false,
+             "filingRanges":{
+                "min":1000,
+                "mid":5000,
+                "max":10000
+             },
+             "filingFees":{
+                "min":30,
+                "mid":50,
+                "max":75
+             },
+             "rareQuestions":{
+                "status":false
+             }
+          },
+          "NV":{
+             "canFile":true,
+             "filingRanges":{
+                "min":1000,
+                "mid":5000,
+                "max":10000
+             },
+             "filingFees":{
+                "min":30,
+                "mid":50,
+                "max":75
+             },
+             "rareQuestions":{
+                "status":false
+             }
+          }
+       },
+       "formInfo":{
+          "asked":[
+             "Yes",
+             "No"
+          ],
+          "pNumber":[
+             1,
+             2,
+             3,
+             4,
+             5,
+             "Greater than 5"
+          ],
+          "pType":[
+             "Business",
+             "Person",
+             "Government Official"
+          ],
+          "states":[
+             "AK",
+             "AL",
+             "CA",
+             "NV",
+             "TX"
+          ]
+       }
+     };
 
 // Quiz Functions
   // Quiz Beginning
@@ -180,14 +176,14 @@ formApp
     };
   // Quiz Step 3 Specific
     QuizFactory.finishQuiz = function(arr){
-      
+
       var answersArr = [];
       var errorMessageNumbers = [];
-      
+
       for(var i = 0; i < arr.length; i++){
-        answersArr.push(arr[i]["answer"])        
+        answersArr.push(arr[i]["answer"])
       }
-      
+
       if(answersArr.indexOf("Yes") >= 0){
         for(var j = 0; j < answersArr.length; j++){
           errorMessageNumbers.push(i + 1);
@@ -203,7 +199,6 @@ formApp
     return QuizFactory;
 
   });
-
 
 
 // unsuccessful http request 1

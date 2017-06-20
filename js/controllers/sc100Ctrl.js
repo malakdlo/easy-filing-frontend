@@ -1,6 +1,6 @@
 formApp.controller('Sc100FormCtrl', function($scope, QuizFactory){
   /******************** Data **********************/
-      $scope.quizResults = QuizFactory.results;  
+      $scope.quizResults = QuizFactory.results;
       $scope.sc100Deets = {
         "plaintiffs":[],
         "defendants":[],
@@ -32,19 +32,19 @@ formApp.controller('Sc100FormCtrl', function($scope, QuizFactory){
           }
         }
       };
-  
+
     // Modal Settings
       $scope.oneAtAtTime = true;
-    
-  
+
+
 /******************** Functions **********************/
 
 // BEGIN
-  
+
     $scope.beginFiling = function(){
       $scope.sc100Deets.other.begin = true;
     }
-  
+
 // Step 1 - PLAINTIFF INFO
     // Find out how may plaintiffs to create number of forms
     $scope.numOfPlaintiffs = function(){
@@ -67,8 +67,8 @@ formApp.controller('Sc100FormCtrl', function($scope, QuizFactory){
         }
       }
     };
-      
-     
+
+
 // Step 2 - DEFENDANT INFO
     // Find out how may defendants to create number of forms
     $scope.numOfDefendants = function(){
@@ -92,7 +92,6 @@ formApp.controller('Sc100FormCtrl', function($scope, QuizFactory){
       }
     }
 
-
 // ALL
     // to-do list
     $scope.addToDo = function(item){
@@ -100,30 +99,5 @@ formApp.controller('Sc100FormCtrl', function($scope, QuizFactory){
           $scope.sc100Deets.toDoList.push(item);
           console.log($scope.sc100Deets.toDoList);
       }
-    
-    
-    $scope.canFile = function(state, amount){
-                  console.log("**** canFile Results ****");
-                  $scope.passBasics = false;
-                  if($scope.filingDeetsObject.hasOwnProperty(state)){
-                    if($scope.filingDeetsObject[state].canFile === true){
-                       if(amount <= $scope.filingDeetsObject[state].filingRanges.max){
-                         console.log("Less than the max?");
-                         console.log("Yes")
-                         $scope.passBasics = true;
-                       } else {
-                         $scope.reason = "Sorry, you have surpassed the max";
-                         console.log($scope.reason);
-                       }// end if / else for max
-                    }else {
-                      $scope.reason = "Sorry, can't file in this state :( "
-                      console.log($scope.reason);
-                    } // end if / else for canFile
-                  } // end if for hasOwnProperty(state)
-                  return $scope.passBasics;
-                };
-      
-      
-      
-      
+
 });
